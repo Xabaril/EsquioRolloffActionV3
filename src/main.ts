@@ -4,10 +4,10 @@ const https = require('https');
 
 async function run() {
   try {
-    const esquioUrl = core.getInput('esquioUrl');
-    const esquioApiKey = core.getInput('esquioApiKey');
-    const productName = core.getInput('productName');
-    const featureName = core.getInput('featureName');
+    const esquioUrl = core.getInput('esquio-url');
+    const esquioApiKey = core.getInput('esquio-api-key');
+    const productName = core.getInput('product-name');
+    const featureName = core.getInput('feature-name');
 
     await rollOffFeature(url.parse(esquioUrl), esquioApiKey, productName, featureName);
   } catch (error) {

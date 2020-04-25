@@ -6,10 +6,10 @@ Please read [Esquio readthedocs](https://esquio.readthedocs.io/en/latest/) first
 
 ## Parameters needed
 
-- **esquioUrl**: Url to the Esquio Api. i.e.: https://myesquioui.deployment.com
-- **esquioApiKey**: API key to authenticate to esquio. Recommended to store as [Github secret](https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables)
-- **productName**: Name of the product to which the feature belongs.
-- **featureName**: Name of the feature to disable.
+- **esquio-url**: Url to the Esquio Api. i.e.: https://myesquioui.deployment.com
+- **esquio-api-key**: API key to authenticate to esquio. Recommended to store as [Github secret](https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables)
+- **product-name**: Name of the product to which the feature belongs.
+- **feature-name**: Name of the feature to disable.
 
 ## Example
 

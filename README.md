@@ -18,8 +18,8 @@ Please read [Esquio readthedocs](https://esquio.readthedocs.io/en/latest/) first
         uses: actions/esquio-rolloff-v3
         id: esquio-rolloff-v3
         with:
-          esquioUrl: 'https://esquiodemoui.azurewebsites.net/'
-          esquioApiKey: ${{ secrets.apikey }}
-          productName: 'Default'
-          featureName: 'MatchScore'
+          esquio-url: 'https://esquiodemoui.azurewebsites.net/'
+          esquio-api-key: ${{ secrets.apikey }}
+          product-name: 'Default'
+          feature-name: 'MatchScore'
 ```

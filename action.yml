@@ -17,6 +17,9 @@ inputs:
   feature-name:
     required: true
     description: 'Feature name'
+  deployment-name:
+    required: false
+    description: 'Name of the deplyment you want to set the value for (if you are using rings, otherwise leave empty)'
 runs:
   using: 'node12'
   main: 'lib/main.js'

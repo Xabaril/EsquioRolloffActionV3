@@ -10,6 +10,7 @@ Please read [Esquio readthedocs](https://esquio.readthedocs.io/en/latest/) first
 - **esquio-api-key**: API key to authenticate to esquio. Recommended to store as [Github secret](https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables)
 - **product-name**: Name of the product to which the feature belongs.
 - **feature-name**: Name of the feature to disable.
+- **deployment-name**: Name of the deplyment you want to set the value for (if you are using rings, otherwise leave empty)
 
 ## Example
 
@@ -22,4 +23,5 @@ Please read [Esquio readthedocs](https://esquio.readthedocs.io/en/latest/) first
           esquio-api-key: ${{ secrets.apikey }}
           product-name: 'Default'
           feature-name: 'MatchScore'
+          deployment-name: 'Tests'
 ```

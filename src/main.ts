@@ -8,17 +8,18 @@ async function run() {
     const esquioApiKey = core.getInput('esquio-api-key');
     const productName = core.getInput('product-name');
     const featureName = core.getInput('feature-name');
+    const deploymentName = core.getInput('deployment-name');
 
-    await rollOffFeature(url.parse(esquioUrl), esquioApiKey, productName, featureName);
+    await rollbackFeature(url.parse(esquioUrl), esquioApiKey, productName, featureName, deploymentName);
   } catch (error) {
     core.setFailed(error.message);
   }
 }
 
-async function rollOffFeature(esquioUrl: url.UrlWithStringQuery, esquioApiKey: string, productName: string, featureName: string) {
+async function rollbackFeature(esquioUrl: url.UrlWithStringQuery, esquioApiKey: string, productName: string, featureName: string, deploymentName: string) {
   const options = {
       hostname: esquioUrl.host,
-      path: `/api/products/${productName}/features/${featureName}/rollback`,
+      path: `/api/products/${productName}/deployments/${deploymentName}/features/${featureName}/rollback`,
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json',
@@ -28,14 +29,15 @@ async function rollOffFeature(esquioUrl: url.UrlWithStringQuery, esquioApiKey: s
   }
   console.log(`url to call ${esquioUrl.host} ${options.path}`);
   const req = https.request(options, (res: any) => {
+    
       if (res.statusCode === 200) {
-          console.log('Feature rolloff succesful');
+          console.log('Feature rollback succesful');
       }
 
       res.on('data', (data: any) => {
           if (res.statusCode != 200) {
               const responseData = JSON.parse(data);
-              core.setFailed(`Error in feature rolloff ${responseData.detail} HttpCode: ${res.statusCode}`);
+              core.setFailed(`Error in feature rollback ${responseData.detail} HttpCode: ${res.statusCode}`);
           }
       });
   });
